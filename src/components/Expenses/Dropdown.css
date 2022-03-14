@@ -1,0 +1,15 @@
+.dropdown {
+  display: flex;
+  justify-content: space-between;
+}
+.dropdown__label {
+  color: white;
+  font-weight: bold;
+}
+.dropdown__selectbox {
+  width: 8rem;
+  height: 2.5rem;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 6px;
+}

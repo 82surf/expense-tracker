@@ -1,3 +1,6 @@
+import { useState } from 'react';
+
+import NewExpense from './components/NewExpense/NewExpense';
 import Expenses from './components/Expenses/Expenses';
 
 function App() {
@@ -23,10 +26,20 @@ function App() {
     },
   ];
 
+  const [filteredExpenses, setFilteredExpenses] = useState(expenses);
+
+  const addExpenseHandler = (expense) => {
+    console.log(expense);
+  };
+
+  const selectYearHandler = (year) => {
+    setFilteredExpenses(expenses.filter((v) => v.date.getFullYear() === year));
+  };
+
   return (
     <div>
-      <h2>Let's get started!</h2>
-      <Expenses expenses={expenses} />
+      <NewExpense onAddExpense={addExpenseHandler} />
+      <Expenses expenses={filteredExpenses} onSelectYear={selectYearHandler} />
     </div>
   );
 }
